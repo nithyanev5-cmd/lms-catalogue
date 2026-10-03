@@ -1,0 +1,12 @@
+target/
+node_modules/
+dist/
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/mcp.json
+*.iml
+.DS_Store
+
+# Written by the postToolUse audit hook.
+agent-audit.log

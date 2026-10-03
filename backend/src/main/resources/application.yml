@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: lms-catalog
+  devtools:
+    restart:
+      # Off deliberately. An agent writing a dozen files restarts the app a dozen
+      # times, and with ddl-auto: validate most of those restarts fail mid-write.
+      enabled: false
+    livereload:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/lms_catalog?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: lms_app
+    password: lms_app_pw
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration,classpath:db/demo
+
+server:
+  port: 8080
+
+logging:
+  level:
+    CATALOG_AUDIT: INFO

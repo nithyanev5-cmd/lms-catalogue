@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    /* Matches Vite 8's default browser baseline (Baseline Widely Available as of
+       2026-01-01: Chrome/Edge 111, Firefox 114, Safari 16.4). */
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    /* Vite resolves imports, not Node. "bundler" models that: it honours package
+       "exports" maps and allows the explicit .ts/.tsx specifiers this codebase
+       uses. TypeScript 7 removed moduleResolution "node" entirely. */
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+
+    /* Automatic JSX runtime: components need no React import. */
+    "jsx": "react-jsx",
+
+    /* tsc is only ever a type checker here; Vite does all emitting. noEmit is
+       also required by allowImportingTsExtensions. */
+    "noEmit": true,
+
+    /* Vite's own .d.ts pulls in node types; do not type-check dependencies. */
+    "skipLibCheck": true,
+
+    /* strict and noUncheckedSideEffectImports are TypeScript 7 defaults. They
+       are stated explicitly so this file documents the intent. */
+    "strict": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+
+  /* "tests" and "playwright.config.ts" do not exist yet. That is safe: include
+     entries are globs and contribute nothing when they match no files. */
+  "include": ["src", "tests", "vite.config.ts", "playwright.config.ts"]
+}
